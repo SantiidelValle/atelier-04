@@ -26,16 +26,15 @@
           <span class="wordmark-text">ATELIER <em>/</em> 04</span>
         </a>
 
-        <p class="header-note">Curaduría contemporánea <span>—</span> 2026</p>
-
         <div class="header-actions">
           <button class="cart-toggle" type="button" id="cart-toggle" aria-expanded="false" aria-controls="cart-panel">
+            <svg class="cart-icon" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M3 4h2l2.1 10.2a2 2 0 0 0 2 1.6h7.8a2 2 0 0 0 1.9-1.4L21 8H6" />
+              <circle cx="9" cy="19" r="1.2" />
+              <circle cx="18" cy="19" r="1.2" />
+            </svg>
             <span>Carrito</span>
             <span class="cart-badge" id="cart-count">0</span>
-          </button>
-          <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="filter-panel">
-            <span>Menú</span>
-            <span class="menu-icon" aria-hidden="true"><i></i><i></i></span>
           </button>
         </div>
       </header>
@@ -104,13 +103,13 @@
               <div class="catalog-meta">
                 <span id="result-count">3 piezas</span>
                 <span class="meta-line"></span>
-                <label class="currency-control" for="currency-select">
-                  <span>Moneda</span>
-                  <select id="currency-select" aria-label="Seleccionar moneda">
-                    <option value="UYU">Pesos uruguayos</option>
-                    <option value="USD">Dólares</option>
-                  </select>
-                </label>
+                <div class="currency-control" aria-label="Seleccionar moneda">
+                  <span class="currency-label">Moneda</span>
+                  <div class="currency-switch" id="currency-switch" role="group" aria-label="Moneda">
+                    <button class="currency-option is-active" type="button" data-currency="UYU" aria-pressed="true">UYU</button>
+                    <button class="currency-option" type="button" data-currency="USD" aria-pressed="false">USD</button>
+                  </div>
+                </div>
                 <span class="meta-line"></span>
                 <button class="reset-button" id="reset-filters" type="button">Limpiar filtros <span>×</span></button>
               </div>
@@ -145,13 +144,48 @@
               <button type="button" data-brand-link="lacoste">Lacoste</button>
             </div>
           </section>
+
+          <section class="contact-section" id="contacto" aria-labelledby="contact-title">
+            <div class="contact-heading">
+              <span class="eyebrow">Contacto</span>
+              <h2 id="contact-title">Hablemos.</h2>
+              <p>Consultas, reseñas o cualquier comentario sobre la selección. Te leemos.</p>
+            </div>
+            <div class="contact-layout">
+              <form class="contact-form" id="contact-form">
+                <label for="contact-email">Tu email</label>
+                <input id="contact-email" name="email" type="email" placeholder="nombre@email.com" required />
+                <label for="contact-topic">Motivo</label>
+                <select id="contact-topic" name="topic">
+                  <option value="Consulta general">Consulta general</option>
+                  <option value="Queja">Queja</option>
+                  <option value="Reseña">Reseña</option>
+                  <option value="Otro">Otro</option>
+                </select>
+                <label for="contact-message">Mensaje</label>
+                <textarea id="contact-message" name="message" rows="4" placeholder="Escribí tu mensaje..." required></textarea>
+                <button class="contact-submit" type="submit">Enviar mensaje <span>↗</span></button>
+                <p class="contact-feedback" id="contact-feedback" aria-live="polite"></p>
+              </form>
+              <div class="contact-aside">
+                <span class="eyebrow">Canales</span>
+                <a class="contact-channel" href="mailto:santinolvalle2008@gmail.com">Email <span>↗</span></a>
+                <a class="contact-channel" href="https://wa.me/59892809934" target="_blank" rel="noreferrer">WhatsApp <span>↗</span></a>
+                <div class="social-block">
+                  <span class="eyebrow">Redes sociales</span>
+                  <div class="social-placeholder"><span>Instagram</span><span>@pendiente</span></div>
+                  <div class="social-placeholder"><span>TikTok</span><span>@pendiente</span></div>
+                </div>
+              </div>
+            </div>
+          </section>
         </main>
       </div>
 
       <footer class="site-footer">
         <span>ATELIER / 04</span>
         <span>Catálogo editorial · Próximamente online</span>
-        <span>Montevideo — AR / UY</span>
+        <span>Montevideo — UY</span>
       </footer>
     </div>
 

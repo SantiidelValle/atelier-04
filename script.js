@@ -507,8 +507,15 @@ function resetFilters() {
 
 document.querySelector("#reset-filters").addEventListener("click", resetFilters);
 document.querySelector("#empty-reset").addEventListener("click", resetFilters);
-document.querySelector("#currency-select").addEventListener("change", (event) => {
-  state.currency = event.target.value;
+document.querySelector("#currency-switch").addEventListener("click", (event) => {
+  const option = event.target.closest("[data-currency]");
+  if (!option) return;
+  state.currency = option.dataset.currency;
+  document.querySelectorAll(".currency-option").forEach((item) => {
+    const isActive = item.dataset.currency === state.currency;
+    item.classList.toggle("is-active", isActive);
+    item.setAttribute("aria-pressed", String(isActive));
+  });
   renderProducts();
   renderCart();
   if (dialog.open) {
@@ -522,11 +529,21 @@ function toggleMenu(force) {
   const button = document.querySelector(".menu-toggle");
   const shouldOpen = typeof force === "boolean" ? force : !panel.classList.contains("is-open");
   panel.classList.toggle("is-open", shouldOpen);
-  button.setAttribute("aria-expanded", String(shouldOpen));
+  if (button) button.setAttribute("aria-expanded", String(shouldOpen));
 }
 
-document.querySelector(".menu-toggle").addEventListener("click", () => toggleMenu());
 document.querySelector("#mobile-filter-trigger").addEventListener("click", () => toggleMenu());
+
+document.querySelector("#contact-form").addEventListener("submit", (event) => {
+  event.preventDefault();
+  const email = document.querySelector("#contact-email").value.trim();
+  const topic = document.querySelector("#contact-topic").value;
+  const message = document.querySelector("#contact-message").value.trim();
+  const subject = encodeURIComponent(`Contacto ATELIER / 04 — ${topic}`);
+  const body = encodeURIComponent(`Email de contacto: ${email}\nMotivo: ${topic}\n\n${message}`);
+  document.querySelector("#contact-feedback").textContent = "Abriendo tu aplicación de correo...";
+  window.location.href = `mailto:santinolvalle2008@gmail.com?subject=${subject}&body=${body}`;
+});
 
 window.addEventListener("resize", () => {
   if (window.innerWidth > 920) toggleMenu(false);
