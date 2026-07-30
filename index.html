@@ -1,0 +1,230 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#f7f7f5" />
+    <meta
+      name="description"
+      content="Catálogo editorial de prendas seleccionadas."
+    />
+    <title>ATELIER / 04 — Catálogo editorial</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;1,500&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <script src="script.js" defer></script>
+  </head>
+  <body>
+    <div class="site-shell">
+      <header class="site-header">
+        <a class="wordmark" href="#inicio" aria-label="ATELIER / 04, volver al inicio">
+          <span class="wordmark-mark">A</span>
+          <span class="wordmark-text">ATELIER <em>/</em> 04</span>
+        </a>
+
+        <p class="header-note">Curaduría contemporánea <span>—</span> 2026</p>
+
+        <div class="header-actions">
+          <button class="cart-toggle" type="button" id="cart-toggle" aria-expanded="false" aria-controls="cart-panel">
+            <span>Carrito</span>
+            <span class="cart-badge" id="cart-count">0</span>
+          </button>
+          <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="filter-panel">
+            <span>Menú</span>
+            <span class="menu-icon" aria-hidden="true"><i></i><i></i></span>
+          </button>
+        </div>
+      </header>
+
+      <div class="layout" id="inicio">
+        <aside class="filter-panel" id="filter-panel" aria-label="Filtros del catálogo">
+          <div class="panel-intro">
+            <span class="eyebrow">Explorar</span>
+            <p>Una selección de esenciales, ordenada por firma y por pieza.</p>
+          </div>
+
+          <div class="filter-group">
+            <div class="filter-heading">
+              <span>Marcas</span>
+              <span class="filter-index">01</span>
+            </div>
+            <div class="filter-options" data-filter-group="brand">
+              <button class="filter-button is-active" type="button" data-filter="brand" data-value="all">Todas <span>3</span></button>
+              <button class="filter-button" type="button" data-filter="brand" data-value="tommy-hilfiger">Tommy Hilfiger <span>1</span></button>
+              <button class="filter-button" type="button" data-filter="brand" data-value="calvin-klein">Calvin Klein <span>1</span></button>
+              <button class="filter-button" type="button" data-filter="brand" data-value="lacoste">Lacoste <span>1</span></button>
+            </div>
+          </div>
+
+          <div class="filter-group">
+            <div class="filter-heading">
+              <span>Prendas</span>
+              <span class="filter-index">02</span>
+            </div>
+            <div class="filter-options" data-filter-group="category">
+              <button class="filter-button is-active" type="button" data-filter="category" data-value="all">Todas <span>3</span></button>
+              <button class="filter-button" type="button" data-filter="category" data-value="buzo">Buzos <span>1</span></button>
+              <button class="filter-button" type="button" data-filter="category" data-value="campera">Camperas <span>2</span></button>
+            </div>
+          </div>
+
+          <div class="panel-footer">
+            <span class="status-dot"></span>
+            <span>Catálogo informativo</span>
+            <span class="panel-footer-arrow">↗</span>
+          </div>
+        </aside>
+
+        <main class="main-content">
+          <section class="hero" aria-labelledby="hero-title">
+            <div class="hero-copy">
+              <span class="eyebrow">The essentials edit <span class="hero-dot">●</span> 001</span>
+              <h1 id="hero-title">Lo que se usa.<br /><em>Lo que permanece.</em></h1>
+              <p class="hero-description">Una mirada precisa sobre prendas reconocibles, materiales honestos y diseño que no necesita exagerar.</p>
+              <a class="text-link" href="#catalogo">Ver selección <span>↓</span></a>
+            </div>
+
+            <div class="hero-stamp" aria-label="Catálogo no disponible para compra online">
+              <span class="stamp-top">CATÁLOGO</span>
+              <span class="stamp-center">04</span>
+              <span class="stamp-bottom">NO. 2026 / EDITION</span>
+            </div>
+          </section>
+
+          <section class="catalog" id="catalogo" aria-labelledby="catalog-title">
+            <div class="catalog-topline">
+              <div>
+                <span class="eyebrow">Selección actual</span>
+                <h2 id="catalog-title">Piezas destacadas</h2>
+              </div>
+              <div class="catalog-meta">
+                <span id="result-count">3 piezas</span>
+                <span class="meta-line"></span>
+                <label class="currency-control" for="currency-select">
+                  <span>Moneda</span>
+                  <select id="currency-select" aria-label="Seleccionar moneda">
+                    <option value="UYU">Pesos uruguayos</option>
+                    <option value="USD">Dólares</option>
+                  </select>
+                </label>
+                <span class="meta-line"></span>
+                <button class="reset-button" id="reset-filters" type="button">Limpiar filtros <span>×</span></button>
+              </div>
+            </div>
+
+            <div class="mobile-filter-bar">
+              <button class="mobile-filter-trigger" type="button" id="mobile-filter-trigger">
+                <span>Filtrar selección</span>
+                <span aria-hidden="true">＋</span>
+              </button>
+            </div>
+
+            <div class="active-filter" id="active-filter" aria-live="polite">
+              <span>Mostrando todas las piezas</span>
+            </div>
+            <div class="currency-note" id="currency-note">Conversión de referencia: 1 USD ≈ $U 40</div>
+
+            <div class="product-grid" id="product-grid"></div>
+
+            <div class="empty-state" id="empty-state" hidden>
+              <span class="empty-number">00</span>
+              <h3>No hay piezas en esta selección.</h3>
+              <button class="text-link" id="empty-reset" type="button">Volver al catálogo <span>↗</span></button>
+            </div>
+          </section>
+
+          <section class="brand-strip" aria-label="Firmas disponibles">
+            <span class="eyebrow">Firmas seleccionadas</span>
+            <div class="brand-links">
+              <button type="button" data-brand-link="tommy-hilfiger">Tommy Hilfiger</button>
+              <button type="button" data-brand-link="calvin-klein">Calvin Klein</button>
+              <button type="button" data-brand-link="lacoste">Lacoste</button>
+            </div>
+          </section>
+        </main>
+      </div>
+
+      <footer class="site-footer">
+        <span>ATELIER / 04</span>
+        <span>Catálogo editorial · Próximamente online</span>
+        <span>Montevideo — AR / UY</span>
+      </footer>
+    </div>
+
+    <dialog class="product-dialog" id="product-dialog" aria-labelledby="dialog-title">
+      <div class="dialog-inner">
+        <button class="dialog-close" type="button" id="dialog-close" aria-label="Cerrar detalle">×</button>
+        <div class="dialog-visual">
+          <div class="dialog-art product-art" id="dialog-art" aria-label="Foto del producto"></div>
+          <div class="dialog-gallery" id="dialog-gallery" aria-label="Galería de fotos"></div>
+        </div>
+        <div class="dialog-copy">
+          <span class="eyebrow" id="dialog-brand">Marca</span>
+          <h2 id="dialog-title">Producto</h2>
+          <p id="dialog-description">Detalle de la pieza.</p>
+          <div class="dialog-details">
+            <span id="dialog-price">Precio a confirmar</span>
+            <span id="dialog-category">Categoría</span>
+            <span id="dialog-size">Talle a confirmar</span>
+          </div>
+          <div class="size-field">
+            <label for="dialog-size-select">Seleccionar talle</label>
+            <select id="dialog-size-select" aria-label="Seleccionar talle">
+              <option value="XS">XS</option>
+              <option value="S">S</option>
+              <option value="M">M</option>
+              <option value="L">L</option>
+              <option value="XL">XL</option>
+              <option value="XXL">XXL</option>
+            </select>
+          </div>
+          <button class="add-to-cart" id="add-to-cart" type="button">Agregar al carrito</button>
+          <p class="dialog-feedback" id="dialog-feedback" aria-live="polite"></p>
+          <p class="dialog-note">El pedido se confirma por WhatsApp. No se realiza el pago desde esta página.</p>
+        </div>
+      </div>
+    </dialog>
+
+    <aside class="cart-panel" id="cart-panel" aria-label="Carrito" aria-hidden="true">
+      <div class="cart-panel-header">
+        <div>
+          <span class="eyebrow">Tu selección</span>
+          <h2>Carrito <span id="cart-panel-count">(0)</span></h2>
+        </div>
+        <button class="cart-close" type="button" id="cart-close" aria-label="Cerrar carrito">×</button>
+      </div>
+
+      <div class="cart-empty" id="cart-empty">
+        <span class="empty-number">00</span>
+        <p>Tu carrito está vacío.</p>
+        <button class="text-link" type="button" id="cart-empty-close">Volver al catálogo <span>↓</span></button>
+      </div>
+
+      <div class="cart-items" id="cart-items"></div>
+
+      <div class="cart-checkout" id="cart-checkout">
+        <form class="promo-form" id="promo-form">
+          <label for="promo-code">Código promocional</label>
+          <div class="promo-input-row">
+            <input id="promo-code" type="text" placeholder="Ingresar código" autocomplete="off" />
+            <button type="submit">Aplicar</button>
+          </div>
+          <p class="promo-message" id="promo-message" aria-live="polite"></p>
+        </form>
+
+        <div class="cart-summary">
+          <div><span>Subtotal</span><strong id="cart-subtotal">$U 0</strong></div>
+          <div><span>Descuento</span><strong id="cart-discount">—</strong></div>
+          <div class="cart-total"><span>Total</span><strong id="cart-total">$U 0</strong></div>
+        </div>
+
+        <button class="confirm-order" id="confirm-order" type="button">Confirmar pedido <span>↗</span></button>
+        <p class="cart-hint" id="cart-hint">El pedido se abrirá en WhatsApp con el detalle de tus prendas.</p>
+      </div>
+    </aside>
+  </body>
+</html>
