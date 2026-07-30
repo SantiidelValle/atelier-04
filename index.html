@@ -71,6 +71,12 @@
             </div>
           </div>
 
+          <div class="panel-social" aria-label="Redes sociales">
+            <span class="eyebrow">Redes</span>
+            <div class="panel-social-link"><span>Instagram</span><span>@pendiente</span></div>
+            <div class="panel-social-link"><span>TikTok</span><span>@pendiente</span></div>
+          </div>
+
           <div class="panel-footer">
             <span class="status-dot"></span>
             <span>Catálogo informativo</span>
@@ -103,13 +109,13 @@
               <div class="catalog-meta">
                 <span id="result-count">3 piezas</span>
                 <span class="meta-line"></span>
-                <div class="currency-control" aria-label="Seleccionar moneda">
+                <label class="currency-control" for="currency-select">
                   <span class="currency-label">Moneda</span>
-                  <div class="currency-switch" id="currency-switch" role="group" aria-label="Moneda">
-                    <button class="currency-option is-active" type="button" data-currency="UYU" aria-pressed="true">UYU</button>
-                    <button class="currency-option" type="button" data-currency="USD" aria-pressed="false">USD</button>
-                  </div>
-                </div>
+                  <select id="currency-select" aria-label="Seleccionar moneda">
+                    <option value="UYU">UYU</option>
+                    <option value="USD">USD</option>
+                  </select>
+                </label>
                 <span class="meta-line"></span>
                 <button class="reset-button" id="reset-filters" type="button">Limpiar filtros <span>×</span></button>
               </div>
@@ -147,7 +153,6 @@
 
           <section class="contact-section" id="contacto" aria-labelledby="contact-title">
             <div class="contact-heading">
-              <span class="eyebrow">Contacto</span>
               <h2 id="contact-title">Hablemos.</h2>
               <p>Consultas, reseñas o cualquier comentario sobre la selección. Te leemos.</p>
             </div>
@@ -167,16 +172,6 @@
                 <button class="contact-submit" type="submit">Enviar mensaje <span>↗</span></button>
                 <p class="contact-feedback" id="contact-feedback" aria-live="polite"></p>
               </form>
-              <div class="contact-aside">
-                <span class="eyebrow">Canales</span>
-                <a class="contact-channel" href="mailto:santinolvalle2008@gmail.com">Email <span>↗</span></a>
-                <a class="contact-channel" href="https://wa.me/59892809934" target="_blank" rel="noreferrer">WhatsApp <span>↗</span></a>
-                <div class="social-block">
-                  <span class="eyebrow">Redes sociales</span>
-                  <div class="social-placeholder"><span>Instagram</span><span>@pendiente</span></div>
-                  <div class="social-placeholder"><span>TikTok</span><span>@pendiente</span></div>
-                </div>
-              </div>
             </div>
           </section>
         </main>

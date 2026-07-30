@@ -507,15 +507,8 @@ function resetFilters() {
 
 document.querySelector("#reset-filters").addEventListener("click", resetFilters);
 document.querySelector("#empty-reset").addEventListener("click", resetFilters);
-document.querySelector("#currency-switch").addEventListener("click", (event) => {
-  const option = event.target.closest("[data-currency]");
-  if (!option) return;
-  state.currency = option.dataset.currency;
-  document.querySelectorAll(".currency-option").forEach((item) => {
-    const isActive = item.dataset.currency === state.currency;
-    item.classList.toggle("is-active", isActive);
-    item.setAttribute("aria-pressed", String(isActive));
-  });
+document.querySelector("#currency-select").addEventListener("change", (event) => {
+  state.currency = event.target.value;
   renderProducts();
   renderCart();
   if (dialog.open) {
